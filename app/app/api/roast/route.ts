@@ -6,6 +6,7 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
     const formData = await req.formData()
     const image = formData.get('image') as File
     const language = formData.get('language') as string
+    const intensity = formData.get('intensity') as string
     const GEMINI_API_KEY = process.env.GEMINI_API_KEY
 
     if (!GEMINI_API_KEY) {
@@ -28,7 +29,7 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
           mimeType: "image/jpeg",
         },
       },
-      `Roast this image in a humorous way. Be creative, witty, and funny, but mean enough. Limit your response to 2-5 sentences, dont give me any option. Please provide the roast in ${language} language.`,
+      `Roast this image in a humorous way. Be creative, witty, and funny, with roast intensity of ${intensity} out of 100. Limit your response to 2-5 sentences, dont give me any option. Please provide the roast in ${language} language.`,
     ])
 
     return NextResponse.json({ roast: result.response.text() })
