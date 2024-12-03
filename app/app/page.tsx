@@ -25,26 +25,26 @@ export default function ImageRoaster() {
   const [roastIntensity, setRoastIntensity] = useState(50)
   const { toast } = useToast()
 
-  const handleImageUpload = (file: File) => {
+  const handleImageUpload = useCallback((file: File) => {
     setImage(file)
     setImageUrl(URL.createObjectURL(file))
     setRoast('')
     setError(null)
-  }
+  }, [])
 
-  const handleRemoveImage = () => {
+  const handleRemoveImage = useCallback(() => {
     setImage(null)
     setImageUrl(null)
     setRoast('')
     setError(null)
-  }
+  }, [])
 
-  const handleLanguageChange = (newLanguage: string) => {
+  const handleLanguageChange = useCallback((newLanguage: string) => {
     setLanguage(newLanguage)
     setRoast('')
-  }
+  },[])
 
-  const generateRoast = async () => {
+  const generateRoast = useCallback(async () => {
     if (!image) return
 
     setIsLoading(true)
@@ -78,7 +78,7 @@ export default function ImageRoaster() {
     } finally {
       setIsLoading(false)
     }
-  }
+  }, [image, language, roastIntensity, toast])
 
   const handleShare = useCallback(() => {
     if (roast) {
