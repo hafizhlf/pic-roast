@@ -1,0 +1,9 @@
+services:
+  pic-roast:
+    environment:
+    - GEMINI_API_KEY=
+    build: .
+    container_name: pic-roast
+    ports:
+      - "3000:3000/tcp"
+    restart: unless-stopped
