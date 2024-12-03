@@ -1,0 +1,40 @@
+# Ignore node_modules directory
+app/node_modules
+
+# Ignore build files (if you're running build locally)
+app/.next
+
+# Ignore logs
+app/npm-debug.log*
+app/yarn-debug.log*
+app/yarn-error.log*
+app/pnpm-debug.log*
+
+# Ignore .env files if not required in the image
+app/.env
+app/.env.local
+app/.env.production
+app/.env.production.local
+app/.env.development
+app/.env.development.local
+
+# Ignore local directories or OS-specific files
+app/.DS_Store
+app/*.swp
+app/*.swo
+
+# Ignore test-related files
+app/coverage
+app/*.test.*
+app/*.spec.*
+app/jest.config.*
+app/.eslintcache
+app/.jest
+
+# Ignore database
+app/database
+
+# Ignore Git and IDE config files
+.git
+.gitignore
+.vscode
