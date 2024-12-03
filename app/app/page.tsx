@@ -19,7 +19,7 @@ export default function ImageRoaster() {
   const [roast, setRoast] = useState<string>('')
   const [isLoading, setIsLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
-  const [language, setLanguage] = useState('English')
+  const [language, setLanguage] = useState('Indonesia')
   const { toast } = useToast()
 
   const handleImageUpload = (file: File) => {
