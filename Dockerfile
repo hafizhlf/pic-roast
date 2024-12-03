@@ -2,7 +2,7 @@ FROM docker.io/library/node:lts-alpine AS build_node_modules
 
 COPY /app /app
 WORKDIR /app
-RUN npm install
+RUN npm install --force
 RUN npm run build
 RUN npm prune --omit=dev
 
