@@ -4,7 +4,7 @@ COPY /app /app
 WORKDIR /app
 RUN npm install --force
 RUN npm run build
-RUN npm prune --omit=dev
+RUN npm prune --omit=dev --force
 
 FROM docker.io/library/node:lts-alpine
 COPY --from=build_node_modules /app /app
