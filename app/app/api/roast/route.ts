@@ -28,7 +28,7 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
           mimeType: "image/jpeg",
         },
       },
-      `Roast this image in a humorous way. Be creative, witty, and funny, but not overly mean. Limit your response to 2-5 sentences, dont give me any option. Please provide the roast in ${language} language.`,
+      `Roast this image in a humorous way. Be creative, witty, and funny, but mean enough. Limit your response to 2-5 sentences, dont give me any option. Please provide the roast in ${language} language.`,
     ])
 
     return NextResponse.json({ roast: result.response.text() })

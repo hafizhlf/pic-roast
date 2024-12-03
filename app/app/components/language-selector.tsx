@@ -6,8 +6,8 @@ interface LanguageSelectorProps {
 }
 
 const languages = [
-  { name: 'English' },
   { name: 'Indonesia' },
+  { name: 'English' },
   { name: 'Español' },
   { name: 'Français' },
   { name: 'Deutsch' },
