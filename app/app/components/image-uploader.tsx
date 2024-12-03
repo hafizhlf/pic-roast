@@ -34,8 +34,8 @@ export function ImageUploader({ onImageUpload }: ImageUploaderProps) {
     >
       <input {...getInputProps()} />
       <Upload className="mx-auto h-12 w-12 text-gray-400" />
-      <p className="mt-2 text-sm text-gray-600">Drag & drop an image here, or click to select one</p>
-      <p className="text-xs text-gray-500 mt-1">Supported formats: JPEG, PNG, GIF</p>
+      <p className="mt-2 text-sm text-gray-600 dark:text-gray-400">Drag & drop an image here, or click to select one</p>
+      <p className="text-xs text-gray-500 dark:text-gray-300 mt-1">Supported formats: JPEG, PNG, GIF</p>
     </div>
   )
 }
