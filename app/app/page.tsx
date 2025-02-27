@@ -10,7 +10,7 @@ import { ImageUploader } from './components/image-uploader'
 import { RoastResult } from './components/roast-result'
 import { LanguageSelector } from './components/language-selector'
 import { ThemeToggle } from './components/theme-toggle'
-import { Loader2, Trash2, Share2, ImageIcon, Settings, Flame } from 'lucide-react'
+import { Loader2, Trash2, ImageIcon, Settings, Flame } from 'lucide-react'
 import { useToast } from "@/hooks/use-toast"
 import { Toaster } from "@/components/ui/toaster"
 import { motion, AnimatePresence } from "framer-motion"
@@ -80,24 +80,24 @@ export default function ImageRoaster() {
     }
   }, [image, language, roastIntensity, toast])
 
-  const handleShare = useCallback(() => {
-    if (roast) {
-      navigator.clipboard.writeText(roast)
-        .then(() => {
-          toast({
-            title: "Copied to clipboard",
-            description: "The roast has been copied to your clipboard!",
-          })
-        })
-        .catch(() => {
-          toast({
-            title: "Failed to copy",
-            description: "Unable to copy the roast to your clipboard.",
-            variant: "destructive",
-          })
-        })
-    }
-  }, [roast, toast])
+  // const handleShare = useCallback(() => {
+  //   if (roast) {
+  //     navigator.clipboard.writeText(roast)
+  //       .then(() => {
+  //         toast({
+  //           title: "Copied to clipboard",
+  //           description: "The roast has been copied to your clipboard!",
+  //         })
+  //       })
+  //       .catch(() => {
+  //         toast({
+  //           title: "Failed to copy",
+  //           description: "Unable to copy the roast to your clipboard.",
+  //           variant: "destructive",
+  //         })
+  //       })
+  //   }
+  // }, [roast, toast])
 
   const content = useMemo(() => (
     <Card className="w-full max-w-3xl mx-auto backdrop-blur-sm shadow-xl">
@@ -205,10 +205,10 @@ export default function ImageRoaster() {
                 <span className="text-sm text-muted-foreground">
                   Character count: {roast.length}
                 </span>
-                <Button variant="outline" size="sm" onClick={handleShare}>
+                {/* <Button variant="outline" size="sm" onClick={handleShare}>
                   <Share2 className="h-4 w-4 mr-2" />
                   Share
-                </Button>
+                </Button> */}
               </div>
             </motion.div>
           )}
@@ -237,7 +237,7 @@ export default function ImageRoaster() {
         </Button>
       </CardFooter>
     </Card>
-  ), [image, imageUrl, roast, isLoading, error, language, roastIntensity, handleImageUpload, handleRemoveImage, handleLanguageChange, generateRoast, handleShare])
+  ), [image, imageUrl, roast, isLoading, error, language, roastIntensity, handleImageUpload, handleRemoveImage, handleLanguageChange, generateRoast])
 
   return (
     <div className="container mx-auto p-4 min-h-screen flex items-center justify-center">

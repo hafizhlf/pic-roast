@@ -14,7 +14,7 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
     }
 
     const genAI = new GoogleGenerativeAI(GEMINI_API_KEY)
-    const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash-exp" })
+    const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash" })
 
     if (!image) {
       return NextResponse.json({ error: 'No image provided' }, { status: 400 })
@@ -29,7 +29,7 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
           mimeType: "image/jpeg",
         },
       },
-      `Analyze the provided image and deliver a humorous roast in ${language}. Be creative, witty, and funny, with a roast intensity level set to ${intensity} out of 100 (0 = Mild, 50 = Spicy, 100 = Brutal). Your response should be limited to 2-5 sentences, and no additional options or explanations should be included.`
+      `Analyze the provided image and deliver a humorous roast in ${language}. Be creative, witty, and funny, with a roast intensity or mean level set to ${intensity} out of 100 (0 = Mild, 50 = Spicy, 100 = Brutal). Your response should be limited to 2-5 sentences, and no additional options or explanations should be included.`
     ])
 
     return NextResponse.json({ roast: result.response.text() })
